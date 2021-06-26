@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  nginx:
+    ports:
+      - "80:80"
+
+  todo-app:
+    deploy:
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 2
+        delay: 15s
+    build:
+      context: .
+      args:
+        NODE_ENV: production
+    image: thehinneh/ayoba
+    environment:
+      - NODE_ENV=production
+      - MONGO_USER=${MONGO_USER}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+    command: node app.js
+
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}

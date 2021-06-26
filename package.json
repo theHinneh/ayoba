@@ -1,0 +1,35 @@
+{
+  "name": "ayoba-todo",
+  "version": "1.0.0",
+  "description": "an ayoba api test",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "start:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build",
+    "stop": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml down",
+    "up": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d -V"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theHinneh/ayoba.git"
+  },
+  "keywords": [
+    "ayoba"
+  ],
+  "author": "theHinneh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theHinneh/ayoba/issues"
+  },
+  "homepage": "https://github.com/theHinneh/ayoba#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
