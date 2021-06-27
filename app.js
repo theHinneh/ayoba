@@ -31,6 +31,9 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/test", (req, res) => {
+  res.send("<h2>Hi There!!!</h2>");
+});
 app.use("/", todoRoute);
 
 const PORT = process.env.PORT || 3000;

@@ -2,6 +2,7 @@ const TodoTask = require("../models/todoModel");
 
 exports.home = async (req, res, next) => {
   TodoTask.find({}, (err, tasks) => {
+    console.log(tasks)
     res.render("todoView.ejs", { todoTasks: tasks });
   });
 };

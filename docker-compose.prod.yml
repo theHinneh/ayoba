@@ -5,7 +5,7 @@ services:
     ports:
       - "80:80"
 
-  todo-app:
+  app:
     deploy:
       restart_policy:
         condition: any
@@ -19,11 +19,15 @@ services:
     image: thehinneh/ayoba
     environment:
       - NODE_ENV=production
-      - MONGO_USER=${MONGO_USER}
-      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      # - MONGO_USER=${MONGO_USER}
+      - MONGO_USER=theHinneh
+      # - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_PASSWORD=theHinneh
     command: node app.js
 
   mongo:
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      # - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_USERNAME=theHinneh
+      # - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_ROOT_PASSWORD=theHinneh

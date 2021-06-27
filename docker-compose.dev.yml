@@ -5,7 +5,7 @@ services:
     ports:
       - "3000:80"
 
-  todo-app:
+  app:
     build:
       context: .
       args:
