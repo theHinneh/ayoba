@@ -4,7 +4,8 @@
   "description": "an ayoba api test",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start:local": "nodemon app.js",
+    "start": "node app.js",
     "start:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build",
     "start:dev": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build",
     "stop": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml down",
@@ -40,5 +41,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "14.17.1"
   }
 }
