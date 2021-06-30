@@ -73,15 +73,15 @@ var Server = /** @class */ (function () {
                             type: "postgres",
                             entities: ["build/database/entities/**/*.js"],
                             synchronize: true,
-                            //   url: process.env.DATABASE_URL,
-                            //   ssl: true,
-                            //   extra: {
-                            //     ssl: { rejectUnauthorized: false },
-                            //   },
-                            port: 5432,
-                            username: "theHinneh",
-                            password: "theHinneh",
-                            database: "theHinneh",
+                            url: process.env.DATABASE_URL,
+                            ssl: true,
+                            extra: {
+                                ssl: { rejectUnauthorized: false },
+                            },
+                            //   port: 5432,
+                            //   username: "theHinneh",
+                            //   password: "theHinneh",
+                            //   database: "theHinneh",
                             name: "rango",
                         }).then(function (e) {
                             console.log("connected");

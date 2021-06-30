@@ -50,7 +50,6 @@ var TodoService = /** @class */ (function () {
                     case 1:
                         connection = _a.sent();
                         this.todoRepository = connection.getCustomRepository(todo_repository_1.TodoRepository);
-                        console.log(connection.getCustomRepository(todo_repository_1.TodoRepository));
                         return [4 /*yield*/, this.todoRepository.find()];
                     case 2:
                         todos = _a.sent();
