@@ -1,0 +1,15 @@
+{
+    "type": "postgres",
+    "entities": [
+        "*/entity/*.js"
+    ],
+    "logging": true,
+    "synchronize": true,
+    "ssl": true,
+    "url": "process.env.DATABASE_URL",
+    "extra": {
+        "ssl": {
+            "rejectUnauthorized": false
+        }
+    }
+}

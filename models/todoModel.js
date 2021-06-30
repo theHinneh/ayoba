@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
-
-const todoTaskSchema = new mongoose.Schema({
-  content: {
-    type: String,
-    required: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var mongoose = require("mongoose");
+var todoTaskSchema = new mongoose.Schema({
+    content: {
+        type: String,
+        required: true,
+    },
+    date: {
+        type: Date,
+        default: Date.now,
+    },
 });
-
 module.exports = mongoose.model("TodoTask", todoTaskSchema);
