@@ -49,6 +49,7 @@ var TodoController = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.todoService.index()];
                     case 1:
                         tasks = _a.sent();
+                        console.log(tasks);
                         res.render("todoView.ejs", { todoTasks: tasks });
                         return [2 /*return*/];
                 }
@@ -60,9 +61,10 @@ var TodoController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         id = req.params.id;
-                        return [4 /*yield*/, this.todoService.getATodo(Number(id))];
+                        return [4 /*yield*/, this.todoService.getATodo(id)];
                     case 1:
                         todo = _a.sent();
+                        res.render("todoEdit.ejs", { todoTasks: todo, idTask: id });
                         return [2 /*return*/];
                 }
             });
@@ -76,7 +78,9 @@ var TodoController = /** @class */ (function () {
                         return [4 /*yield*/, this.todoService.create(task)];
                     case 1:
                         newTodo = _a.sent();
-                        res.send(newTodo);
+                        console.log('newTodo', newTodo);
+                        // res.send(newTodo);
+                        res.redirect("/");
                         return [2 /*return*/];
                 }
             });
@@ -86,7 +90,8 @@ var TodoController = /** @class */ (function () {
             return __generator(this, function (_a) {
                 task = req.body;
                 id = req.params.id;
-                res.send(this.todoService.update(task, Number(id)));
+                // res.send(this.todoService.update(task, Number(id)));
+                res.redirect("/");
                 return [2 /*return*/];
             });
         }); };
@@ -96,17 +101,15 @@ var TodoController = /** @class */ (function () {
     }
     TodoController.prototype.delete = function (req, res) {
         var id = req.params.id;
-        res.send(this.todoService.delete(Number(id)));
+        res.send(this.todoService.delete(id));
     };
     /**
      * Configure routes for controller
      */
     TodoController.prototype.routes = function () {
-        this.router
-            .get("/", this.index)
-            .post("/", this.create)
-            .put("/:id", this.update)
-            .delete("/:id", this.delete);
+        this.router.get("/", this.index).post("/", this.create);
+        this.router.get("/edit/:id", this.getATodo).put("/edit/:id", this.update);
+        this.router.get("/remove/:id", this.delete);
     };
     return TodoController;
 }());

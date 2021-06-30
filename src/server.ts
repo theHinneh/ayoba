@@ -17,8 +17,11 @@ class Server {
    * Method to configure the server
    */
   public configuration(): void {
+    this.app.enable("trust proxy");
     this.app.use("/static", express.static("public"));
     this.app.set("view engine", "ejs");
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
     this.app.set("port", process.env.PORT || 3000);
   }
 
@@ -26,22 +29,34 @@ class Server {
    * Method to configure routes
    */
   public async routes(): Promise<void> {
-    await createConnection({
+    const connection = await createConnection({
       type: "postgres",
       entities: ["build/database/entities/**/*.js"],
       synchronize: true,
+      
       url: process.env.DATABASE_URL,
       ssl: true,
       extra: {
         ssl: { rejectUnauthorized: false },
       },
-      name: "todo",
+
+      //   port: 5432,
+      //   username: "theHinneh",
+      //   password: "theHinneh",
+      //   database: "theHinneh",
+      name: "rango",
+    }).then((e) => {
+      console.log("connected");
+      this.app.use("/", this.todoController.router);
+      this.app.get("/test", (req: Request, res: Response) => {
+        res.send("<h1>Hello</h1>");
+      });
     });
 
-    this.app.use("/", this.todoController.router);
-    this.app.get("/test", (req: Request, res: Response) => {
-      res.send("<h1>Hello</h1>");
-    });
+    // this.app.use("/", this.todoController.router);
+    // this.app.get("/test", (req: Request, res: Response) => {
+    //   res.send("<h1>Hello</h1>");
+    // });
   }
 
   /**
