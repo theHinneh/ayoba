@@ -40,7 +40,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var typeorm_1 = require("typeorm");
 var todo_controller_1 = require("./controller/todo.controller");
 var Server = /** @class */ (function () {
     function Server() {
@@ -65,35 +64,12 @@ var Server = /** @class */ (function () {
      */
     Server.prototype.routes = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var connection;
-            var _this = this;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, typeorm_1.createConnection({
-                            type: "postgres",
-                            entities: ["build/database/entities/**/*.js"],
-                            synchronize: true,
-                            url: process.env.DATABASE_URL,
-                            ssl: true,
-                            extra: {
-                                ssl: { rejectUnauthorized: false },
-                            },
-                            //   port: 5432,
-                            //   username: "theHinneh",
-                            //   password: "theHinneh",
-                            //   database: "theHinneh",
-                            name: "rango",
-                        }).then(function (e) {
-                            console.log("connected");
-                            _this.app.use("/", _this.todoController.router);
-                            _this.app.get("/test", function (req, res) {
-                                res.send("<h1>Hello</h1>");
-                            });
-                        })];
-                    case 1:
-                        connection = _a.sent();
-                        return [2 /*return*/];
-                }
+                this.app.use("/", this.todoController.router);
+                this.app.get("/test", function (req, res) {
+                    res.send("<h1>Hello</h1>");
+                });
+                return [2 /*return*/];
             });
         });
     };

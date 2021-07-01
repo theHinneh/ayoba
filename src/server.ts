@@ -29,33 +29,10 @@ class Server {
    * Method to configure routes
    */
   public async routes(): Promise<void> {
-    const connection = await createConnection({
-      type: "postgres",
-      entities: ["build/database/entities/**/*.js"],
-      synchronize: true,
-      //   url: process.env.DATABASE_URL,
-      //   ssl: true,
-      //   extra: {
-      //     ssl: { rejectUnauthorized: false },
-      //   },
-
-      port: 5432,
-      username: "theHinneh",
-      password: "theHinneh",
-      database: "theHinneh",
-      name: "rango",
-    }).then((e) => {
-      console.log("connected");
-      this.app.use("/", this.todoController.router);
-      this.app.get("/test", (req: Request, res: Response) => {
-        res.send("<h1>Hello</h1>");
-      });
+    this.app.use("/", this.todoController.router);
+    this.app.get("/test", (req: Request, res: Response) => {
+      res.send("<h1>Hello</h1>");
     });
-
-    // this.app.use("/", this.todoController.router);
-    // this.app.get("/test", (req: Request, res: Response) => {
-    //   res.send("<h1>Hello</h1>");
-    // });
   }
 
   /**

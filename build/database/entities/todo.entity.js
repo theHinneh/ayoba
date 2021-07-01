@@ -13,13 +13,10 @@ exports.TodoEntity = void 0;
 var typeorm_1 = require("typeorm");
 var TodoEntity = /** @class */ (function () {
     function TodoEntity() {
-        this.id = Math.random().toString(16).substr(2, 8);
-        this.content = "";
-        this.date = new Date();
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
-        __metadata("design:type", String)
+        __metadata("design:type", Number)
     ], TodoEntity.prototype, "id", void 0);
     __decorate([
         typeorm_1.Column(),

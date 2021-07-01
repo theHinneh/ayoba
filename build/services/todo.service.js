@@ -41,84 +41,92 @@ var typeorm_1 = require("typeorm");
 var todo_repository_1 = require("../repository/todo.repository");
 var TodoService = /** @class */ (function () {
     function TodoService() {
+        // this.todoRepository =
+        //   getConnection("rango").getCustomRepository(TodoRepository);
         var _this = this;
         this.index = function () { return __awaiter(_this, void 0, void 0, function () {
-            var connection, todos;
+            var todos;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, typeorm_1.getConnection("rango")];
+                    case 0: return [4 /*yield*/, this.todoRepository.find()];
                     case 1:
-                        connection = _a.sent();
-                        this.todoRepository = connection.getCustomRepository(todo_repository_1.TodoRepository);
-                        return [4 /*yield*/, this.todoRepository.find()];
-                    case 2:
                         todos = _a.sent();
                         return [2 /*return*/, todos];
                 }
             });
         }); };
         this.getATodo = function (id) { return __awaiter(_this, void 0, void 0, function () {
-            var connection, todo;
+            var todo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, typeorm_1.getConnection("rango")];
+                    case 0: return [4 /*yield*/, this.todoRepository.findOne(Number(id))];
                     case 1:
-                        connection = _a.sent();
-                        this.todoRepository = connection.getCustomRepository(todo_repository_1.TodoRepository);
-                        return [4 /*yield*/, this.todoRepository.findOne(id)];
-                    case 2:
                         todo = _a.sent();
                         return [2 /*return*/, todo];
                 }
             });
         }); };
         this.create = function (todo) { return __awaiter(_this, void 0, void 0, function () {
-            var connection, newTodo;
+            var newTodo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, typeorm_1.getConnection("rango")];
+                    case 0:
+                        console.log(todo);
+                        return [4 /*yield*/, this.todoRepository.save(todo)];
                     case 1:
-                        connection = _a.sent();
-                        this.todoRepository = connection.getCustomRepository(todo_repository_1.TodoRepository);
-                        return [4 /*yield*/, this.todoRepository.create(todo)];
-                    case 2:
                         newTodo = _a.sent();
                         return [2 /*return*/, newTodo];
                 }
             });
         }); };
         this.update = function (todo, id) { return __awaiter(_this, void 0, void 0, function () {
-            var connection, updatedTodo;
+            var updatedTodo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, typeorm_1.getConnection("rango")];
+                    case 0: return [4 /*yield*/, this.todoRepository.update(Number(id), todo)];
                     case 1:
-                        connection = _a.sent();
-                        this.todoRepository = connection.getCustomRepository(todo_repository_1.TodoRepository);
-                        return [4 /*yield*/, this.todoRepository.update(id, todo)];
-                    case 2:
                         updatedTodo = _a.sent();
                         return [2 /*return*/, updatedTodo];
                 }
             });
         }); };
         this.delete = function (id) { return __awaiter(_this, void 0, void 0, function () {
-            var connection, deletedTodo;
+            var deletedTodo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, typeorm_1.getConnection("rango")];
+                    case 0: return [4 /*yield*/, this.todoRepository.delete(Number(id))];
                     case 1:
-                        connection = _a.sent();
-                        this.todoRepository = connection.getCustomRepository(todo_repository_1.TodoRepository);
-                        return [4 /*yield*/, this.todoRepository.delete(id)];
-                    case 2:
                         deletedTodo = _a.sent();
                         return [2 /*return*/, deletedTodo];
                 }
             });
         }); };
-        // this.todoRepository =
-        //   getConnection("rango").getCustomRepository(TodoRepository);
+        (function () { return __awaiter(_this, void 0, void 0, function () {
+            var connection;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, typeorm_1.createConnection({
+                            type: "postgres",
+                            entities: ["build/database/entities/**/*.js"],
+                            synchronize: true,
+                            //   url: process.env.DATABASE_URL,
+                            //   ssl: true,
+                            //   extra: {
+                            //     ssl: { rejectUnauthorized: false },
+                            //   },
+                            port: 5432,
+                            username: "theHinneh",
+                            password: "theHinneh",
+                            database: "theHinneh",
+                            // name: "rango",
+                        })];
+                    case 1:
+                        connection = _a.sent();
+                        this.todoRepository = connection.getCustomRepository(todo_repository_1.TodoRepository);
+                        return [2 /*return*/];
+                }
+            });
+        }); })();
     }
     return TodoService;
 }());
