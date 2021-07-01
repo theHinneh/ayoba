@@ -33,17 +33,16 @@ class Server {
       type: "postgres",
       entities: ["build/database/entities/**/*.js"],
       synchronize: true,
-      
-      url: process.env.DATABASE_URL,
-      ssl: true,
-      extra: {
-        ssl: { rejectUnauthorized: false },
-      },
+      //   url: process.env.DATABASE_URL,
+      //   ssl: true,
+      //   extra: {
+      //     ssl: { rejectUnauthorized: false },
+      //   },
 
-      //   port: 5432,
-      //   username: "theHinneh",
-      //   password: "theHinneh",
-      //   database: "theHinneh",
+      port: 5432,
+      username: "theHinneh",
+      password: "theHinneh",
+      database: "theHinneh",
       name: "rango",
     }).then((e) => {
       console.log("connected");
