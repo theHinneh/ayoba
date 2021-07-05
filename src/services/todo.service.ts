@@ -1,5 +1,5 @@
 import { createConnection, getConnection } from "typeorm";
-import { AyobaAppApi } from "../../lib/microapp";
+import { getAyoba } from "../../lib/microapp";
 import { TodoEntity } from "../database/entities/todo.entity";
 import { TodoRepository } from "../repository/todo.repository";
 
@@ -41,7 +41,7 @@ export class TodoService {
   }
 
   public index = async () => {
-    const Ayoba: any = AyobaAppApi();
+    const Ayoba = getAyoba();
     const getMsisdn = Ayoba.getMsisdn();
 
     console.log("getMsisdn", getMsisdn);
