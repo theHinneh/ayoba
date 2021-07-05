@@ -41,10 +41,10 @@ export class TodoService {
   }
 
   public index = async () => {
-    const Ayoba: any = await AyobaAppApi();
-    const getCountry = Ayoba.getCountry;
+    const Ayoba: any = AyobaAppApi();
+    const getMsisdn = Ayoba.getMsisdn();
 
-    console.log("getCountry", getCountry);
+    console.log("getMsisdn", getMsisdn);
 
     const todos = await this.todoRepository.find();
     return todos;
