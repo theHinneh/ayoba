@@ -16,6 +16,6 @@ var AyobaAppApi = function () {
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
         return null; // todo
     }
-    return Android;
+    return userAgent;
 };
 exports.AyobaAppApi = AyobaAppApi;
