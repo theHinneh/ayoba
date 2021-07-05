@@ -1,4 +1,4 @@
-require("browser-env")(["window", "navigator"]);
+require("browser-env")(["window", "navigator", "Android"]);
 
 const agent = (navigator as any).userAgent;
 const vendor = (navigator as any).vendor;
@@ -7,9 +7,9 @@ const opera = (window as any).opera;
 // browserEnv(["navigator"]);
 
 class AyobaApi {
-  Android: any;
+//   Android: any;
   getAyoba() {
-    var userAgent: any = agent || vendor || opera;
+    var userAgent: any = navigator.userAgent || navigator.vendor || opera;
 
     // Windows Phone must come first because its UA also contains "Android"
     if (/windows phone/i.test(userAgent)) {
@@ -17,7 +17,7 @@ class AyobaApi {
     }
 
     if (/android/i.test(userAgent)) {
-      return this.Android;
+      return 'Android';
     }
 
     // iOS detection from: http://stackoverflow.com/a/9039885/177710
