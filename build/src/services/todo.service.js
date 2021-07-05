@@ -42,9 +42,6 @@ var microapp_1 = require("../../lib/microapp");
 var todo_repository_1 = require("../repository/todo.repository");
 var TodoService = /** @class */ (function () {
     function TodoService() {
-
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        console.log('userAgent', userAgent);
         // this.todoRepository =
         //   getConnection("rango").getCustomRepository(TodoRepository);
         var _this = this;

@@ -13,6 +13,7 @@ var AyobaApi = /** @class */ (function () {
     //   Android: any;
     AyobaApi.prototype.getAyoba = function () {
         var userAgent = navigator.userAgent || navigator.vendor || opera;
+        console.log("userAgent", userAgent);
         // Windows Phone must come first because its UA also contains "Android"
         if (/windows phone/i.test(userAgent)) {
             return null;
