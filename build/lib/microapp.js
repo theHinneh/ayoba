@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AyobaAppApi = void 0;
-require("browser-env")(["window", "navigator", "Android"]);
+// require("browser-env")(["window", "navigator"]);
 var opera = window.opera;
 var AyobaAppApi = function () {
     var userAgent = navigator.userAgent || navigator.vendor || opera;

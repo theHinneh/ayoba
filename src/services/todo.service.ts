@@ -42,9 +42,9 @@ export class TodoService {
 
   public index = async () => {
     const user: any = await AyobaAppApi();
-    const msisdn = user.getMsisdn();
+    // const msisdn = user.getMsisdn();
 
-    console.log("user", user, "msisdn", msisdn);
+    console.log("user", user);
 
     const todos = await this.todoRepository.find();
     return todos;
