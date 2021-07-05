@@ -1,4 +1,5 @@
 import { createConnection, getConnection } from "typeorm";
+import { AyobaAppApi } from "../../lib/microapp";
 import { TodoEntity } from "../database/entities/todo.entity";
 import { TodoRepository } from "../repository/todo.repository";
 
@@ -12,13 +13,22 @@ export class TodoService {
     (async () => {
       const connection = await createConnection({
         type: "postgres",
-        entities: ["build/database/entities/**/*.js"],
+        entities: ["build/src/database/entities/**/*.js"],
         synchronize: true,
-          url: process.env.DATABASE_URL,
-          ssl: true,
-          extra: {
-            ssl: { rejectUnauthorized: false },
-          },
+
+        /**
+         * Heroku Setup
+         */
+
+        url: process.env.DATABASE_URL,
+        ssl: true,
+        extra: {
+          ssl: { rejectUnauthorized: false },
+        },
+
+        /**
+         * Dev setup
+         */
 
         // port: 5432,
         // username: "theHinneh",
@@ -31,7 +41,8 @@ export class TodoService {
   }
 
   public index = async () => {
-    // console.log(connection.getCustomRepository(TodoRepository));
+    const user = AyobaAppApi;
+    console.log(user);
 
     const todos = await this.todoRepository.find();
     return todos;

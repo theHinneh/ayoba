@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TodoService = void 0;
 var typeorm_1 = require("typeorm");
+var microapp_1 = require("../../lib/microapp");
 var todo_repository_1 = require("../repository/todo.repository");
 var TodoService = /** @class */ (function () {
     function TodoService() {
@@ -45,10 +46,13 @@ var TodoService = /** @class */ (function () {
         //   getConnection("rango").getCustomRepository(TodoRepository);
         var _this = this;
         this.index = function () { return __awaiter(_this, void 0, void 0, function () {
-            var todos;
+            var user, todos;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.todoRepository.find()];
+                    case 0:
+                        user = microapp_1.AyobaAppApi;
+                        console.log(user);
+                        return [4 /*yield*/, this.todoRepository.find()];
                     case 1:
                         todos = _a.sent();
                         return [2 /*return*/, todos];
@@ -107,13 +111,19 @@ var TodoService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, typeorm_1.createConnection({
                             type: "postgres",
-                            entities: ["build/database/entities/**/*.js"],
+                            entities: ["build/src/database/entities/**/*.js"],
                             synchronize: true,
+                            /**
+                             * Heroku Setup
+                             */
                             url: process.env.DATABASE_URL,
                             ssl: true,
                             extra: {
                                 ssl: { rejectUnauthorized: false },
                             },
+                            /**
+                             * Dev setup
+                             */
                             // port: 5432,
                             // username: "theHinneh",
                             // password: "theHinneh",

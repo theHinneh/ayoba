@@ -1,5 +1,5 @@
 var Ayoba = getAyoba();
-
+navigator = {}
 /**
  * Determine the mobile operating system and returns the
  * proper javascript interface
@@ -23,3 +23,7 @@ function getAyoba() {
 
   return "unknown";
 }
+
+exports.ayobaApi = () => {
+  return Ayobaa;
+};
