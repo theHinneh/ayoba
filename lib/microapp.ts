@@ -3,7 +3,6 @@ const opera = (window as any).opera;
 
 export const AyobaAppApi = () => {
   var userAgent: any = navigator.userAgent || navigator.vendor || opera;
-  console.log("userAgent", userAgent);
 
   // Windows Phone must come first because its UA also contains "Android"
   if (/windows phone/i.test(userAgent)) {

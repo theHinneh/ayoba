@@ -5,7 +5,6 @@ require("browser-env")(["window", "navigator", "Android"]);
 var opera = window.opera;
 var AyobaAppApi = function () {
     var userAgent = navigator.userAgent || navigator.vendor || opera;
-    console.log("userAgent", userAgent);
     // Windows Phone must come first because its UA also contains "Android"
     if (/windows phone/i.test(userAgent)) {
         return null;
