@@ -49,12 +49,13 @@ var TodoService = /** @class */ (function () {
             var user, msisdn, todos;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        user = microapp_1.AyobaAppApi();
+                    case 0: return [4 /*yield*/, microapp_1.AyobaAppApi()];
+                    case 1:
+                        user = _a.sent();
                         msisdn = user.getMsisdn();
                         console.log("user", user, "msisdn", msisdn);
                         return [4 /*yield*/, this.todoRepository.find()];
-                    case 1:
+                    case 2:
                         todos = _a.sent();
                         return [2 /*return*/, todos];
                 }
