@@ -9,8 +9,9 @@ var AyobaAppApi = function () {
     // if (/windows phone/i.test(userAgent)) {
     //   return null;
     // }
-    if (/android/i.test(userAgent)) {
-        return Android;
+    if (/(android)/i.test(userAgent)) {
+        console.log("device is an android");
+        return navigator.userAgent;
     }
     // // iOS detection from: http://stackoverflow.com/a/9039885/177710
     // if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
