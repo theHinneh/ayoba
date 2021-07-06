@@ -1,6 +1,6 @@
 window["Android"];
 
-export function getAyoba() {
+function getAyoba() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
   // Windows Phone must come first because its UA also contains "Android"
@@ -20,7 +20,7 @@ export function getAyoba() {
   return "unknown";
 }
 
-// const Ayoba = getAyoba();
+const Ayoba = getAyoba();
 // export default Ayoba
 
 window.alert("file Loaded");
