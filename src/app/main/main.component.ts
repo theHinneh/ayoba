@@ -19,11 +19,13 @@ export class MainComponent implements OnInit {
     id: null,
   };
 
-  constructor(private mainService: MainService) {}
+  constructor(private mainService: MainService) {
+    this.mainService.loadJsFile('assets/js/microapp.js'); // Added By Obed
+  }
 
   ngOnInit(): void {
     this.getAllTodos();
-    this.mainService.loadJsFile("assets/js/microapp.js"); // Added By Obed
+    // this.mainService.getA
   }
 
   getAllTodos(): void {
