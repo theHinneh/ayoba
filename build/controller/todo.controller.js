@@ -38,27 +38,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TodoController = void 0;
 var express_1 = require("express");
-var todo_entity_1 = require("../database/entities/todo.entity");
 var todo_service_1 = require("../services/todo.service");
 var TodoController = /** @class */ (function () {
     function TodoController() {
         var _this = this;
         this.index = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var tasks, task;
+            var tasks;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.todoService.index()];
                     case 1:
                         tasks = _a.sent();
-                        task = new todo_entity_1.TodoEntity();
-                        // console.log(task);
-                        res.render("todoView.ejs", { todoTasks: tasks });
+                        // const task = new TodoEntity();
+                        res.send(tasks).json();
                         return [2 /*return*/];
                 }
             });
         }); };
         this.getATodo = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var id, todo;
+            var id, todo, data;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -66,7 +64,8 @@ var TodoController = /** @class */ (function () {
                         return [4 /*yield*/, this.todoService.getATodo(Number(id))];
                     case 1:
                         todo = _a.sent();
-                        res.render("todoEdit.ejs", { todoTask: todo, idTask: id });
+                        data = { todoTask: todo, idTask: id };
+                        res.send(data).json();
                         return [2 /*return*/];
                 }
             });
@@ -82,14 +81,13 @@ var TodoController = /** @class */ (function () {
                     case 1:
                         newTodo = _a.sent();
                         // console.log("newTodo", newTodo);
-                        // res.send(newTodo);
-                        res.redirect("/");
+                        res.send(newTodo).json();
                         return [2 /*return*/];
                 }
             });
         }); };
         this.update = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var task, id;
+            var task, id, update;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -97,8 +95,8 @@ var TodoController = /** @class */ (function () {
                         id = req.params.id;
                         return [4 /*yield*/, this.todoService.update(task, Number(id))];
                     case 1:
-                        _a.sent();
-                        res.redirect("/");
+                        update = _a.sent();
+                        res.send(update).json();
                         return [2 /*return*/];
                 }
             });
@@ -112,7 +110,7 @@ var TodoController = /** @class */ (function () {
                         return [4 /*yield*/, this.todoService.delete(Number(id))];
                     case 1:
                         _a.sent();
-                        res.redirect("/");
+                        res.status(200).send("deleted");
                         return [2 /*return*/];
                 }
             });

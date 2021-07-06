@@ -43,13 +43,6 @@ export class TodoService {
   }
 
   public index = async () => {
-    const Ayoba = ayoba.getAyoba();
-    // const getMsisdn = Ayoba.getMsisdn();
-
-    // console.log("getMsisdn", getMsisdn);
-    console.log(Ayoba);
-    console.log(typeof Ayoba);
-
     const todos = await this.todoRepository.find();
     return todos;
   };
