@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TodoService = void 0;
 var typeorm_1 = require("typeorm");
-var microapp_1 = require("../../lib/microapp");
+var microapp_js_1 = require("../../lib/microapp.js");
 var todo_repository_1 = require("../repository/todo.repository");
 var TodoService = /** @class */ (function () {
     function TodoService() {
@@ -46,11 +46,13 @@ var TodoService = /** @class */ (function () {
         //   getConnection("rango").getCustomRepository(TodoRepository);
         var _this = this;
         this.index = function () { return __awaiter(_this, void 0, void 0, function () {
-            var Ayoba, todos;
+            var Ayoba, getMsisdn, todos;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        Ayoba = microapp_1.getAyoba();
+                        Ayoba = microapp_js_1.getAyoba();
+                        getMsisdn = Ayoba.getMsisdn();
+                        console.log("getMsisdn", getMsisdn);
                         return [4 /*yield*/, this.todoRepository.find()];
                     case 1:
                         todos = _a.sent();
