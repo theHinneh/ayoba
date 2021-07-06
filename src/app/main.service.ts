@@ -14,7 +14,7 @@ export class MainService {
 
   private getUserAgent(): any {
     const agent = getAyoba();
-    console.log(agent);
+    console.warn('agent', agent);
 
     return agent.getMsisdn();
   }
