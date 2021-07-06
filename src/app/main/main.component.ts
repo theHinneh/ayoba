@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
+declare var getAyoba: any;
 
 @Component({
   selector: 'app-main',
@@ -23,6 +24,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllTodos();
+    this.getUserAgent()
   }
 
   getAllTodos(): void {
@@ -87,5 +89,10 @@ export class MainComponent implements OnInit {
   cancelUpdate(): void {
     this.todos.unshift(this.editedTodo);
     this.editTodo = false;
+  }
+
+  getUserAgent(): void {
+    const agent = getAyoba();
+    console.log(agent);
   }
 }
