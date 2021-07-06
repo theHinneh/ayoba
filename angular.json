@@ -72,10 +72,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ayobatodo:build:production"
+              "browserTarget": "ayobatodo:build:production",
+              "proxyConfig": "proxy.config.json"
             },
             "development": {
-              "browserTarget": "ayobatodo:build:development"
+              "browserTarget": "ayobatodo:build:development",
+              "proxyConfig": "proxy.config.json"
             }
           },
           "defaultConfiguration": "development"

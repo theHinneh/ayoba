@@ -31,6 +31,7 @@ export class MainComponent implements OnInit {
       .subscribe(
         (res: Array<any>) => (this.todos = res.sort((a, b) => b.id - a.id))
       );
+    console.log(this.todos);
   }
 
   addTodo(): void {
