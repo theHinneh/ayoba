@@ -20,7 +20,7 @@ export function getAyoba() {
   return "unknown";
 }
 
-const Ayoba = getAyoba();
-export default Ayoba
+// const Ayoba = getAyoba();
+// export default Ayoba
 
 window.alert("file Loaded");
