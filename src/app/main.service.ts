@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-declare const getAyoba: any;
+// declare const getAyoba: any;
 // declare const Ayoba: any;
 
 // import * as Ayoba from 'getAyoba'
