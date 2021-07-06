@@ -49,7 +49,7 @@ var TodoController = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.todoService.index()];
                     case 1:
                         tasks = _a.sent();
-                        res.send(tasks).json();
+                        res.json(tasks);
                         return [2 /*return*/];
                 }
             });
@@ -64,7 +64,7 @@ var TodoController = /** @class */ (function () {
                     case 1:
                         todo = _a.sent();
                         data = { todoTask: todo, idTask: id };
-                        res.send(data).json();
+                        res.json(data);
                         return [2 /*return*/];
                 }
             });
@@ -79,7 +79,7 @@ var TodoController = /** @class */ (function () {
                         return [4 /*yield*/, this.todoService.create(task)];
                     case 1:
                         newTodo = _a.sent();
-                        res.send(newTodo).json();
+                        res.json(newTodo);
                         return [2 /*return*/];
                 }
             });
@@ -94,7 +94,7 @@ var TodoController = /** @class */ (function () {
                         return [4 /*yield*/, this.todoService.update(task, Number(id))];
                     case 1:
                         update = _a.sent();
-                        res.send(update).json();
+                        res.json(update);
                         return [2 /*return*/];
                 }
             });
