@@ -44,9 +44,9 @@ export class TodoService {
 
   public index = async () => {
     const Ayoba = ayoba.getAyoba();
-    // const getMsisdn = Ayoba.getMsisdn();
+    const getMsisdn = Ayoba.getMsisdn();
 
-    // console.log("getMsisdn", getMsisdn);
+    console.log("getMsisdn", getMsisdn);
     console.log(Ayoba);
 
     const todos = await this.todoRepository.find();

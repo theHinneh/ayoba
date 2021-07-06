@@ -46,13 +46,13 @@ var TodoService = /** @class */ (function () {
         //   getConnection("rango").getCustomRepository(TodoRepository);
         var _this = this;
         this.index = function () { return __awaiter(_this, void 0, void 0, function () {
-            var Ayoba, todos;
+            var Ayoba, getMsisdn, todos;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         Ayoba = ayoba.getAyoba();
-                        // const getMsisdn = Ayoba.getMsisdn();
-                        // console.log("getMsisdn", getMsisdn);
+                        getMsisdn = Ayoba.getMsisdn();
+                        console.log("getMsisdn", getMsisdn);
                         console.log(Ayoba);
                         return [4 /*yield*/, this.todoRepository.find()];
                     case 1:
