@@ -18,6 +18,6 @@ function getAyoba() {
   return "unknown";
 }
 
+const Ayoba = getAyoba();
 
 window.alert("file Loaded");
-
