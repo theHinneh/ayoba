@@ -1,1 +1,1 @@
-declare var getAyoba: any;
+declare var Ayoba: any;
