@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
-declare var getAyoba: any;
 
 @Component({
   selector: 'app-main',

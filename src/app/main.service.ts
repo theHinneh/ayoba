@@ -13,11 +13,15 @@ export class MainService {
 
   private getUserAgent(): any {
     const agent = getAyoba();
+    console.log(agent);
+
     return agent.getMsisdn();
   }
 
   public getAllTodos(): Observable<any> {
-    return this.http.get(`${this.baseUrl}${this.getUserAgent()}`);
+    this.getUserAgent();
+
+    return this.http.get(`${this.baseUrl}`);
   }
 
   public singleTodo(id: number): Observable<any> {
