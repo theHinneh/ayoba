@@ -1,7 +1,9 @@
 import { createConnection, getConnection } from "typeorm";
-import { getAyoba } from "../../lib/microapp.js";
+// import { getAyoba } from "../../lib/microapp.js";
 import { TodoEntity } from "../database/entities/todo.entity";
 import { TodoRepository } from "../repository/todo.repository";
+
+const ayoba = require("../../lib/microapp.js");
 
 export class TodoService {
   private todoRepository: TodoRepository | any;
@@ -41,12 +43,11 @@ export class TodoService {
   }
 
   public index = async () => {
-    const Ayoba = getAyoba();
+    const Ayoba = ayoba.getAyoba();
     // const getMsisdn = Ayoba.getMsisdn();
 
     // console.log("getMsisdn", getMsisdn);
     console.log(Ayoba);
-    
 
     const todos = await this.todoRepository.find();
     return todos;
