@@ -3,11 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-// declare const getAyoba: any;
-// declare const Ayoba: any;
-
-// import * as Ayoba from 'getAyoba'
-
 @Injectable({
   providedIn: 'root',
 })
@@ -25,7 +20,6 @@ export class MainService {
   //End
 
   private getUserAgent(): any {
-    const Ayoba = getAyoba()
     console.warn('Ayoba', Ayoba);
     // return Ayoba.getMsisdn();
   }
