@@ -21,7 +21,7 @@ export class MainService {
   //End
 
   private getUserAgent(): any {
-    console.warn('Ayoba', getAyoba());
+    console.error('Ayoba', getAyoba());
     // return Ayoba.getMsisdn();
   }
 
