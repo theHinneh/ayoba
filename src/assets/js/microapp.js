@@ -1,3 +1,5 @@
+window["Android"];
+
 function getAyoba() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
