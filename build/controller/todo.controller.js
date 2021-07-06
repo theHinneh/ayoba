@@ -50,9 +50,8 @@ var TodoController = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.todoService.index()];
                     case 1:
                         tasks = _a.sent();
-                        console.log(tasks);
                         task = new todo_entity_1.TodoEntity();
-                        console.log(task);
+                        // console.log(task);
                         res.render("todoView.ejs", { todoTasks: tasks });
                         return [2 /*return*/];
                 }
@@ -82,7 +81,7 @@ var TodoController = /** @class */ (function () {
                         return [4 /*yield*/, this.todoService.create(task)];
                     case 1:
                         newTodo = _a.sent();
-                        console.log("newTodo", newTodo);
+                        // console.log("newTodo", newTodo);
                         // res.send(newTodo);
                         res.redirect("/");
                         return [2 /*return*/];

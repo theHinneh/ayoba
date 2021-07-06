@@ -14,9 +14,9 @@ export class TodoController {
 
   public index = async (req: Request, res: Response) => {
     const tasks = await this.todoService.index();
-    console.log(tasks);
+    // console.log(tasks);
     const task = new TodoEntity();
-    console.log(task);
+    // console.log(task);
 
     res.render("todoView.ejs", { todoTasks: tasks });
   };
@@ -32,7 +32,7 @@ export class TodoController {
     task.date = new Date()
     const newTodo = await this.todoService.create(task);
 
-    console.log("newTodo", newTodo);
+    // console.log("newTodo", newTodo);
 
     // res.send(newTodo);
     res.redirect("/");

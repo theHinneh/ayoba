@@ -44,9 +44,9 @@ export class TodoService {
 
   public index = async () => {
     const Ayoba = ayoba.getAyoba();
-    const getMsisdn = Ayoba.getMsisdn();
+    // const getMsisdn = Ayoba.getMsisdn();
 
-    console.log("getMsisdn", getMsisdn);
+    // console.log("getMsisdn", getMsisdn);
     console.log(Ayoba);
 
     const todos = await this.todoRepository.find();
@@ -59,7 +59,7 @@ export class TodoService {
   };
 
   public create = async (todo: TodoEntity) => {
-    console.log(todo);
+    // console.log(todo);
 
     const newTodo = await this.todoRepository.save(todo);
     return newTodo;
