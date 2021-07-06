@@ -23,7 +23,7 @@ export class MainService {
   public getAllTodos(): Observable<any> {
     this.getUserAgent();
 
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}${this.getUserAgent()}`);
   }
 
   public singleTodo(id: number): Observable<any> {
