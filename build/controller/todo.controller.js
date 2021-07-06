@@ -49,7 +49,6 @@ var TodoController = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.todoService.index()];
                     case 1:
                         tasks = _a.sent();
-                        // const task = new TodoEntity();
                         res.send(tasks).json();
                         return [2 /*return*/];
                 }
@@ -80,7 +79,6 @@ var TodoController = /** @class */ (function () {
                         return [4 /*yield*/, this.todoService.create(task)];
                     case 1:
                         newTodo = _a.sent();
-                        // console.log("newTodo", newTodo);
                         res.send(newTodo).json();
                         return [2 /*return*/];
                 }

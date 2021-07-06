@@ -1,9 +1,6 @@
 import { createConnection, getConnection } from "typeorm";
-// import { getAyoba } from "../../lib/microapp.js";
 import { TodoEntity } from "../database/entities/todo.entity";
 import { TodoRepository } from "../repository/todo.repository";
-
-const ayoba = require("../../lib/microapp.js");
 
 export class TodoService {
   private todoRepository: TodoRepository | any;

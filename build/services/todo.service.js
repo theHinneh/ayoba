@@ -39,7 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TodoService = void 0;
 var typeorm_1 = require("typeorm");
 var todo_repository_1 = require("../repository/todo.repository");
-var ayoba = require("../../lib/microapp.js");
 var TodoService = /** @class */ (function () {
     function TodoService() {
         // this.todoRepository =
