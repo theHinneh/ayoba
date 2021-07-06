@@ -23,6 +23,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllTodos();
+    this.mainService.loadJsFile("assets/js/microapp.js"); // Added By Obed
+    this.mainService.testImport(); //Added by Obed
   }
 
   getAllTodos(): void {
