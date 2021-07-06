@@ -18,7 +18,6 @@ function getAyoba() {
   return "unknown";
 }
 
-function test(){
-  window.alert("It is Working: Loaded Succesfully");
-}
+
+window.alert("file Loaded");
 
