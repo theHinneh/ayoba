@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 declare const getAyoba: any;
-declare const test:any;
 
 // import * as Ayoba from 'getAyoba'
 
@@ -16,10 +15,6 @@ export class MainService{
   constructor(private http: HttpClient) {}
 
   //Start Added by Obed
-  testImport(){
-    test();
-  }
-
   public loadJsFile(url:string) {
     let script = document.createElement('script');
     script.src = url;
