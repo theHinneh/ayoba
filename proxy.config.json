@@ -1,0 +1,16 @@
+{
+  "/dev/*": {
+    "target": "http://localhost:3000/",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": { "^/dev": "" },
+    "logLevel": "debug"
+  },
+  "/prod/*": {
+    "target": "https://ayobatodo-api.herokuapp.com",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": { "^/prod": "" },
+    "logLevel": "debug"
+  }
+}

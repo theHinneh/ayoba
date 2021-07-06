@@ -1,0 +1,58 @@
+<div class="main" *ngIf="!editTodo">
+  <div class="todo-container">
+    <h2>My Todo List</h2>
+    <div class="todo">
+      <form class="todo-header">
+        <input type="text" name="content" [(ngModel)]="content" />
+        <button type="submit" (click)="addTodo()">
+          <span *ngIf="!loading" class="fas fa-plus"></span>
+        </button>
+      </form>
+
+      <ul class="todo-list">
+        <li class="todo-list-item" *ngFor="let todo of todos">
+          <div class="todo-list-item-name" style="padding-right: 10px">
+            {{ todo.content }}
+          </div>
+          <a (click)="updateTodo(todo)" class="edit">
+            <span class="fas fa-edit"></span>
+          </a>
+          <a class="remove" (click)="deleteTodo(todo)">
+            <span class="fas fa-times"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Edit todo -->
+<div class="main" *ngIf="editTodo">
+  <div class="todo-container">
+    <h2>Edit Todo</h2>
+    <div class="todo">
+      <ul class="todo-list">
+        <li class="todo-list-item">
+          <form class="editForm">
+            <input
+              type="text"
+              [(ngModel)]="editedTodo.content"
+              name="content"
+              style="width: 100%"
+            />
+            <div class="actions">
+              <button type="submit" (click)="submitUpdate()">Confirm</button>
+              <a class="cancel" (click)="cancelUpdate()">Cancel</a>
+            </div>
+          </form>
+        </li>
+
+        <li class="todo-list-item" *ngFor="let todo of todos">
+          <div class="todo-list-item-name" style="padding-right: 10px">
+            {{ todo.content }}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
