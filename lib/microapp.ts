@@ -1,8 +1,8 @@
-// require("browser-env")(["window", "navigator", "Android"]);
-// const opera = (window as any).opera;
+require("browser-env")(["window", "navigator", "Android"]);
+const opera = (window as any).opera;
 
 export function getAyoba() {
-  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  var userAgent = navigator.userAgent || navigator.vendor || opera;
 
   // // Windows Phone must come first because its UA also contains "Android"
   // if (/windows phone/i.test(userAgent)) {

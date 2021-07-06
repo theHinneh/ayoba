@@ -71,7 +71,6 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "outDir": "./build",
     "rootDirs": ["./src"],
-    "emitDecoratorMetadata": true,
-    "noImplicitAny": false
+    "emitDecoratorMetadata": true
   }
 }
