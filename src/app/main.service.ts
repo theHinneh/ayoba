@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-declare var getAyoba: any;
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +20,7 @@ export class MainService {
   //End
 
   private getUserAgent(): any {
-    console.error('Ayoba', getAyoba());
+    // console.error('Ayoba', getAyoba());
     // return Ayoba.getMsisdn();
   }
 

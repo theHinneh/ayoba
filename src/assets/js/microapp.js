@@ -23,4 +23,4 @@ function getAyoba() {
 const Ayoba = getAyoba();
 // export default Ayoba
 
-window.alert("file Loaded");
+// window.alert("file Loaded");
