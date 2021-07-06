@@ -1,6 +1,4 @@
-window["Android"];
-
-export function getAyoba() {
+function getAyoba() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
   // Windows Phone must come first because its UA also contains "Android"
@@ -9,7 +7,6 @@ export function getAyoba() {
   }
 
   if (/android/i.test(userAgent)) {
-    // eslint-disable-next-line no-undef
     return Android;
   }
 
@@ -20,3 +17,5 @@ export function getAyoba() {
 
   return "unknown";
 }
+var Ayoba = getAyoba();
+export default Ayoba;

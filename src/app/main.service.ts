@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-declare var getAyoba: any;
+declare var Ayoba: any;
 
 // import * as Ayoba from 'getAyoba'
 
@@ -14,10 +14,9 @@ export class MainService {
   constructor(private http: HttpClient) {}
 
   private getUserAgent(): any {
-    const agent = getAyoba();
-    console.warn('agent', agent);
+    console.warn('Ayoba', Ayoba);
 
-    return agent.getMsisdn();
+    return Ayoba.getMsisdn();
   }
 
   public getAllTodos(): Observable<any> {
