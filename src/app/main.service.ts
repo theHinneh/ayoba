@@ -2,21 +2,36 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-declare var Ayoba: any;
+
+declare const getAyoba: any;
+declare const test:any;
 
 // import * as Ayoba from 'getAyoba'
 
 @Injectable({
   providedIn: 'root',
 })
-export class MainService {
+export class MainService{
   private baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) {}
 
-  private getUserAgent(): any {
-    console.warn('Ayoba', Ayoba);
+  //Start Added by Obed
+  testImport(){
+    test();
+  }
 
-    return Ayoba.getMsisdn();
+  public loadJsFile(url:string) {
+    let script = document.createElement('script');
+    script.src = url;
+    script.type = 'text/javascript';
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+  //End
+
+
+  private getUserAgent(): any {
+    // console.warn('Ayoba', Ayoba);
+    // return Ayoba.getMsisdn();
   }
 
   public getAllTodos(): Observable<any> {
