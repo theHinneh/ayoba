@@ -48,6 +48,7 @@ export class TodoService {
 
     // console.log("getMsisdn", getMsisdn);
     console.log(Ayoba);
+    console.log(typeof Ayoba);
 
     const todos = await this.todoRepository.find();
     return todos;

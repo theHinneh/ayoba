@@ -54,6 +54,7 @@ var TodoService = /** @class */ (function () {
                         // const getMsisdn = Ayoba.getMsisdn();
                         // console.log("getMsisdn", getMsisdn);
                         console.log(Ayoba);
+                        console.log(typeof Ayoba);
                         return [4 /*yield*/, this.todoRepository.find()];
                     case 1:
                         todos = _a.sent();
