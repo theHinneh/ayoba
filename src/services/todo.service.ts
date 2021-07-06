@@ -15,7 +15,7 @@ export class TodoService {
     (async () => {
       const connection = await createConnection({
         type: "postgres",
-        entities: ["build/src/database/entities/**/*.js"],
+        entities: ["build/database/entities/**/*.js"],
         synchronize: true,
 
         /**

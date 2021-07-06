@@ -113,7 +113,7 @@ var TodoService = /** @class */ (function () {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, typeorm_1.createConnection({
                             type: "postgres",
-                            entities: ["build/src/database/entities/**/*.js"],
+                            entities: ["build/database/entities/**/*.js"],
                             synchronize: true,
                             /**
                              * Heroku Setup
