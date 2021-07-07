@@ -19,6 +19,8 @@ export class MainComponent implements OnInit {
     id: null,
   };
 
+  todayDate: Date = new Date();
+
   constructor(private mainService: MainService) {}
 
   ngOnInit(): void {

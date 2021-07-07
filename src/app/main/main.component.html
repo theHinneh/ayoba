@@ -1,31 +1,3 @@
-<div class="main" *ngIf="!editTodo">
-  <div class="todo-container">
-    <h2>My Todo List</h2>
-    <div class="todo">
-      <form class="todo-header">
-        <input type="text" name="content" [(ngModel)]="content" />
-        <button type="submit" (click)="addTodo()">
-          <span *ngIf="!loading" class="fas fa-plus"></span>
-        </button>
-      </form>
-
-      <ul class="todo-list">
-        <li class="todo-list-item" *ngFor="let todo of todos">
-          <div class="todo-list-item-name" style="padding-right: 10px">
-            {{ todo.content }}
-          </div>
-          <a (click)="updateTodo(todo)" class="edit">
-            <span class="fas fa-edit"></span>
-          </a>
-          <a class="remove" (click)="deleteTodo(todo)">
-            <span class="fas fa-times"></span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <!-- Edit todo -->
 <div class="main" *ngIf="editTodo">
   <div class="todo-container">
@@ -56,3 +28,81 @@
     </div>
   </div>
 </div>
+
+<body class="vh-100 " style="background-color:#e27442;">
+  <div class="d-flex flex-column flex-root">
+    <div class="page d-flex flex-row flex-column-fluid">
+      <div class="wrapper d-flex flex-column flex-row-fluid" >
+        <div class="content fs-6 d-flex flex-column flex-column-fluid bg-white">
+          <div class="toolbar">
+            <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
+              <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-2">Welcome, Today is Another Day
+              </h1>
+                <ul class="breadcrumb fw-bold fs-5 my-1">
+                  <li class="breadcrumb-item text-muted">
+                    {{todayDate |date:"longDate"}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <form class="card mb-5 shadow-sm m-3" style="border:2px solid #e27442;">
+            <div class="card-header">
+                <h3 class="card-title">New Todo</h3>
+                <div class="card-toolbar">
+                    <span class="btn btn-sm btn-light text-white" style="background-color:#e27442;">
+                        New Activity
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+              <input type="text" name="content" [(ngModel)]="content" class="form-control form-control-solid" placeholder="type here"/>
+            </div>
+            <div class="card-footer">
+              <button type="submit" class="btn btn-success" (click)="addTodo()">
+                <span *ngIf="!loading" class="fas fa-plus" style="margin-right: 0.4rem;"></span>
+                Add to list
+              </button>
+            </div>
+        </form>
+
+          <div class="post fs-6 d-flex flex-column-fluid">
+            <div class="container">
+              <div class="card">
+                <div class="card-body p-10 p-lg-15">
+                  <div class="pb-10">
+                    <h1 class="anchor fw-bolder mb-2" id="overview">
+                    Your List
+                  </h1>
+
+                    <div class="pt-5">
+                      <ul class="todo-list">
+                        <li class="todo-list-item" *ngFor="let todo of todos">
+                          <div class="todo-list-item-name" style="padding-right: 10px">
+                            {{ todo.content }}
+                          </div>
+                          <a (click)="updateTodo(todo)" class="edit">
+                            <span class="fas fa-edit"></span>
+                          </a>
+                          <a class="remove" (click)="deleteTodo(todo)">
+                            <span class="fas fa-times"></span>
+                          </a>
+                        </li>
+                      </ul>
+                  </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  </body>
