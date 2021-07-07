@@ -21,11 +21,9 @@ function getAyoba() {
 }
 
 const Ayoba = getAyoba();
-export function onProfileChanged(nickname, avatarPath) {
-  var currentNickname = nickname;
-  var currentAvatarPath = avatarPath;
 
-  return { currentNickname, currentAvatarPath };
+function onNicknameChanged(nickname) {
+  document.getElementById("nicknameInputText").test = nickname;
 }
 
 export { Ayoba };
