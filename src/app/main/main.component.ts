@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import { Ayoba, nickName } from '../microapp';
 
@@ -7,7 +7,7 @@ import { Ayoba, nickName } from '../microapp';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MainComponent implements OnInit, AfterViewInit, OnDestroy, DoCheck {
   todos!: Array<any>;
   loading!: boolean;
   content!: string;
