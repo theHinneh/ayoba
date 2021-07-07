@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { MainService } from '../main.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit, AfterViewChecked {
+export class MainComponent implements OnInit, AfterViewInit {
   todos!: Array<any>;
   loading!: boolean;
   content!: string;
@@ -27,7 +27,7 @@ export class MainComponent implements OnInit, AfterViewChecked {
     this.getAllTodos();
   }
 
-  ngAfterViewChecked(): void {
+  ngAfterViewInit(): void {
     this.getAllTodos();
   }
 
