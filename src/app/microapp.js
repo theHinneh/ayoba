@@ -28,7 +28,7 @@ export function onProfileChanged(nickname, avatarPath) {
   return { currentNickname, currentAvatarPath };
 }
 
-export { Ayoba, currentNickname, currentAvatarPath };
+export { Ayoba };
 // export default Ayoba
 
 // window.alert("file Loaded");
