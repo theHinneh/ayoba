@@ -13,7 +13,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   content!: string;
   editTodo!: boolean;
 
-  username = currentNickname;
+  username!: any;
 
   todoIndex!: number;
   editedTodo: any = {
@@ -31,6 +31,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.getAllTodos();
+    this.username = currentNickname;
   }
 
   getAllTodos(): void {
