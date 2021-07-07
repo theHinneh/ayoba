@@ -21,7 +21,8 @@ function getAyoba() {
 }
 
 const Ayoba = getAyoba();
-let currentNickname, currentAvatarPath;
+var currentNickname = "",
+  currentAvatarPath = "";
 function onProfileChanged(nickname, avatarPath) {
   currentNickname = nickname;
   currentAvatarPath = avatarPath;
