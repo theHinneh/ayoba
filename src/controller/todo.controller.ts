@@ -65,7 +65,7 @@ export class TodoController {
    */
 
   public routes(): void {
-    this.router.get("/:msisdn", this.index).post("/", this.create);
+    this.router.get("/:msisdn", this.index).post("/:msisdn", this.create);
     this.router.get("/edit/:id", this.getATodo).post("/edit/:id", this.update);
     this.router.get("/remove/:id", this.delete);
   }
