@@ -30,6 +30,7 @@ export class RollbarErrorHandler implements ErrorHandler {
 
   handleError(err: any): void {
     this.rollbar.error(err.originalError || err);
+    this.rollbar.log(err.originalError || err);
   }
 }
 

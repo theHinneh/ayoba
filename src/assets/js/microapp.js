@@ -1,3 +1,5 @@
+window["Android"];
+
 function getAyoba() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -18,6 +20,8 @@ function getAyoba() {
   return "unknown";
 }
 
+const Ayoba = getAyoba();
+module.exports = Ayoba;
+// export default Ayoba
 
-window.alert("file Loaded");
-
+// window.alert("file Loaded");
