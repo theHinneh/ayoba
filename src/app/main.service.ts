@@ -21,7 +21,7 @@ export class MainService {
   //End
 
   private getUserAgent(): any {
-    return Ayoba.getMsisdn();
+    return String(Ayoba.getMsisdn()).substring(1);
   }
 
   public getAllTodos(): Observable<any> {
