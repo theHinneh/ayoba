@@ -79,7 +79,7 @@
                   <div class="pb-10">
                     <div class="pt-5">
                       <ul class="todo-list">
-                        <li class="todo-list-item card card-body shadow bg-white" style="border: 1px sold rgb(182, 180, 180);" *ngFor="let todo of todos">
+                        <li class="todo-list-item card card-body shadow bg-white" style="border-bottom: 2px sold rgb(182, 180, 180);" *ngFor="let todo of todos">
                           <div class="todo-list-item-name">
                             {{ todo.content }}
                           </div>
@@ -89,7 +89,6 @@
                           <a class="remove btn btn-sm btn-icon btn-danger" (click)="deleteTodo(todo)">
                             <span class="fas fa-times text-white"></span>
                           </a>
-                          <div class="separator border-3 my-10"></div>
                         </li>
                       </ul>
                   </div>
