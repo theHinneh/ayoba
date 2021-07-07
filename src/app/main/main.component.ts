@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
   };
 
   constructor(private mainService: MainService) {
-    this.mainService.loadJsFile('assets/js/microapp.js'); // Added By Obed
+    // this.mainService.loadJsFile('assets/js/microapp.js'); // Added By Obed
   }
 
   ngOnInit(): void {

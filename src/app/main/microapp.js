@@ -21,7 +21,7 @@ function getAyoba() {
 }
 
 const Ayoba = getAyoba();
-module.exports = Ayoba;
+export default Ayoba;
 // export default Ayoba
 
 // window.alert("file Loaded");
