@@ -21,16 +21,13 @@ export class MainService {
   //End
 
   private getUserAgent(): any {
-    throw new Error(Ayoba);
-
-    console.error('Ayoba', Ayoba);
-    // return Ayoba.getMsisdn();
+    return Ayoba.getMsisdn();
   }
 
   public getAllTodos(): Observable<any> {
     this.getUserAgent();
 
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}${this.getUserAgent()}`);
   }
 
   public singleTodo(id: number): Observable<any> {
