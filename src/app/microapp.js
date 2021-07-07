@@ -23,7 +23,7 @@ function getAyoba() {
 const Ayoba = getAyoba();
 
 function onNicknameChanged(nickname) {
-  document.getElementById("nicknameInputText").test = nickname;
+  document.getElementById("nicknameInputText").innerHTML = nickname;
 }
 
 export { Ayoba };
