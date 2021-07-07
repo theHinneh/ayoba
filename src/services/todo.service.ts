@@ -39,8 +39,8 @@ export class TodoService {
     })();
   }
 
-  public index = async () => {
-    const todos = await this.todoRepository.find();
+  public index = async (msisdn: any) => {
+    const todos = await this.todoRepository.find({ where: { msisdn } });
     return todos;
   };
 

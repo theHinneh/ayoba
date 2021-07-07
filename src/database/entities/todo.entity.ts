@@ -10,4 +10,7 @@ export class TodoEntity {
 
   @Column()
   date!: Date;
+
+  @Column()
+  msisdn!: string;
 }
