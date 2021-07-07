@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
+import Ayoba from '../microapp';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit, AfterViewInit {
+export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   todos!: Array<any>;
   loading!: boolean;
   content!: string;
@@ -93,5 +94,9 @@ export class MainComponent implements OnInit, AfterViewInit {
   cancelUpdate(): void {
     this.todos.unshift(this.editedTodo);
     this.editTodo = false;
+  }
+
+  ngOnDestroy(): void {
+    Ayoba.finish()
   }
 }
