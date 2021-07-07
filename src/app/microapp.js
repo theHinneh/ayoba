@@ -22,13 +22,13 @@ function getAyoba() {
 
 const Ayoba = getAyoba();
 export function onProfileChanged(nickname, avatarPath) {
-  currentNickname = nickname;
-  currentAvatarPath = avatarPath;
+  var currentNickname = nickname;
+  var currentAvatarPath = avatarPath;
 
   return { currentNickname, currentAvatarPath };
 }
 
-export { Ayoba };
+export { Ayoba, currentNickname, currentAvatarPath };
 // export default Ayoba
 
 // window.alert("file Loaded");
