@@ -20,12 +20,13 @@ function getAyoba() {
   return "unknown";
 }
 
+const Ayoba = getAyoba();
+let currentNickname, currentAvatarPath;
 function onProfileChanged(nickname, avatarPath) {
   currentNickname = nickname;
   currentAvatarPath = avatarPath;
 }
 
-const Ayoba = getAyoba();
 export { Ayoba, currentNickname, currentAvatarPath };
 // export default Ayoba
 
