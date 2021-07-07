@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import { Ayoba, nickName } from '../microapp';
 
@@ -7,7 +7,7 @@ import { Ayoba, nickName } from '../microapp';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements OnInit, AfterViewInit, OnDestroy, DoCheck {
+export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterContentChecked {
   todos!: Array<any>;
   loading!: boolean;
   content!: string;
@@ -33,7 +33,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, DoCheck 
     this.getAllTodos();
   }
 
-  ngDoCheck(): void {
+  ngAfterContentChecked(): void {
     this.username = nickName;
   }
 

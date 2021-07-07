@@ -25,8 +25,12 @@ const Ayoba = getAyoba();
 let nickName = "";
 
 function onNicknameChanged(nickname) {
-  // document.getElementById("nicknameInputText").innerHTML = nickname;
+  document.getElementById("nicknameInputText").innerHTML = nickname;
   nickName = nickname;
+}
+
+function onAvatarChanged(avatarPath) {
+  document.getElementById("avatarImage").src = avatarPath;
 }
 
 export { Ayoba, nickName };
