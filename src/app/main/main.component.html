@@ -1,33 +1,5 @@
 <!-- Edit todo -->
-<div class="main" *ngIf="editTodo">
-  <div class="todo-container">
-    <h2>Edit Todo</h2>
-    <div class="todo">
-      <ul class="todo-list">
-        <li class="todo-list-item">
-          <form class="editForm">
-            <input
-              type="text"
-              [(ngModel)]="editedTodo.content"
-              name="content"
-              style="width: 100%"
-            />
-            <div class="actions">
-              <button type="submit" (click)="submitUpdate()">Confirm</button>
-              <a class="cancel" (click)="cancelUpdate()">Cancel</a>
-            </div>
-          </form>
-        </li>
 
-        <li class="todo-list-item" *ngFor="let todo of todos">
-          <div class="todo-list-item-name" style="padding-right: 10px">
-            {{ todo.content }}
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
 
 <body class="vh-100 " style="background-color:#e27442;">
   <div class="d-flex flex-column flex-root">
@@ -67,6 +39,33 @@
               </button>
             </div>
         </form>
+
+        <!-- Edit -->
+        <form class="card mb-5 shadow-sm m-3" *ngIf="editTodo" style="border:2px solid #e27442;">
+          <div class="card-header">
+              <h3 class="card-title">Edit Todo</h3>
+              <div class="card-toolbar">
+                  <span class="btn btn-sm btn-light text-white" style="background-color:#e27442;">
+                      Edit Activity
+                  </span>
+              </div>
+          </div>
+          <div class="card-body">
+            <input type="text" name="content" [(ngModel)]="editedTodo.content" class="form-control form-control-solid" placeholder="Type here"/>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-6">
+                <button type="submit" class="btn btn-success m-2 btn-block"  (click)="submitUpdate()">Confirm</button>
+              </div>
+              <div class="col-6">
+                <a class="cancel" class="btn btn-danger m-2 btn-block"  (click)="cancelUpdate()">Cancel</a>
+              </div>
+            </div>
+          </div>
+      </form>
+
+
 
               <div class="card shadow  m-3">
                 <div class="card-header">
