@@ -20,8 +20,13 @@ function getAyoba() {
   return "unknown";
 }
 
+function onProfileChanged(nickname, avatarPath) {
+  currentNickname = nickname;
+  currentAvatarPath = avatarPath;
+}
+
 const Ayoba = getAyoba();
-export default Ayoba;
+export { Ayoba, currentNickname, currentAvatarPath };
 // export default Ayoba
 
 // window.alert("file Loaded");
