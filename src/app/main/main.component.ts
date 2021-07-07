@@ -22,10 +22,9 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
     id: null,
   };
 
-  constructor(private mainService: MainService) {
-    // this.mainService.loadJsFile('assets/js/microapp.js'); // Added By Obed
-  }
+  todayDate: Date = new Date();
 
+  constructor(private mainService: MainService) {}
   ngOnInit(): void {
     this.getAllTodos();
   }
