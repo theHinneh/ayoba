@@ -8,7 +8,7 @@ import { Ayoba, nickName } from '../microapp';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterContentChecked {
-  todos!: Array<any>;
+  todos: Array<any> = [];
   loading!: boolean;
   content!: string;
   editTodo!: boolean;
