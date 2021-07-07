@@ -25,7 +25,7 @@ export class MainService {
   }
 
   public getAllTodos(): Observable<any> {
-    this.getUserAgent();
+    // this.getUserAgent();
 
     return this.http.get(`${this.baseUrl}${this.getUserAgent()}`);
   }
