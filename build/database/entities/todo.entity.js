@@ -26,6 +26,10 @@ var TodoEntity = /** @class */ (function () {
         typeorm_1.Column(),
         __metadata("design:type", Date)
     ], TodoEntity.prototype, "date", void 0);
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], TodoEntity.prototype, "msisdn", void 0);
     TodoEntity = __decorate([
         typeorm_1.Entity("todo")
     ], TodoEntity);

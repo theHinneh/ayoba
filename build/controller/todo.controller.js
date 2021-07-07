@@ -43,10 +43,12 @@ var TodoController = /** @class */ (function () {
     function TodoController() {
         var _this = this;
         this.index = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var tasks;
+            var msisdn, tasks;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.todoService.index()];
+                    case 0:
+                        msisdn = req.params.msisdn;
+                        return [4 /*yield*/, this.todoService.index(msisdn)];
                     case 1:
                         tasks = _a.sent();
                         res.json(tasks);
@@ -70,11 +72,13 @@ var TodoController = /** @class */ (function () {
             });
         }); };
         this.create = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-            var task, newTodo;
+            var msisdn, task, newTodo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        msisdn = req.params.msisdn;
                         task = req.body;
+                        task.msisdn = msisdn;
                         task.date = new Date();
                         return [4 /*yield*/, this.todoService.create(task)];
                     case 1:
@@ -121,7 +125,7 @@ var TodoController = /** @class */ (function () {
      * Configure routes for controller
      */
     TodoController.prototype.routes = function () {
-        this.router.get("/", this.index).post("/", this.create);
+        this.router.get("/save/:msisdn", this.index).post("/save/:msisdn", this.create);
         this.router.get("/edit/:id", this.getATodo).post("/edit/:id", this.update);
         this.router.get("/remove/:id", this.delete);
     };
