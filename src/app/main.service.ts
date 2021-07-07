@@ -24,7 +24,7 @@ export class MainService {
     throw new Error(Ayoba);
 
     console.error('Ayoba', Ayoba);
-    // return Ayoba.getMsisdn();
+    return Ayoba.getMsisdn();
   }
 
   public getAllTodos(): Observable<any> {
