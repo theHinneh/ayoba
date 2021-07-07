@@ -25,7 +25,7 @@ export class MainService {
   }
 
   public getAllTodos(): Observable<any> {
-    return this.http.get(`${this.baseUrl}${this.getUserAgent()}`);
+    return this.http.get(`${this.baseUrl}save/${this.getUserAgent()}`);
   }
 
   public singleTodo(id: number): Observable<any> {
@@ -33,7 +33,7 @@ export class MainService {
   }
 
   public createTodo(todo: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}${this.getUserAgent()}`, todo);
+    return this.http.post(`${this.baseUrl}save/${this.getUserAgent()}`, todo);
   }
 
   public editTodo(id: number, data: any): Observable<any> {
