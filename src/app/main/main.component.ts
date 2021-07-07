@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
-import { Ayoba, currentNickname } from '../microapp';
+import { Ayoba, onProfileChanged } from '../microapp';
 
 @Component({
   selector: 'app-main',
@@ -31,7 +31,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.getAllTodos();
-    this.username = currentNickname;
+    this.username = onProfileChanged().currentNickname;
   }
 
   getAllTodos(): void {
