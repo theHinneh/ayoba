@@ -25,7 +25,6 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllTodos();
-    // this.mainService.getA
   }
 
   getAllTodos(): void {

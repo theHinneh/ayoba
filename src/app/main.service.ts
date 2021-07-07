@@ -12,12 +12,12 @@ export class MainService {
   constructor(private http: HttpClient) {}
 
   //Start Added by Obed
-  public loadJsFile(url: string) {
-    let script = document.createElement('script');
-    script.src = url;
-    script.type = 'text/javascript';
-    document.getElementsByTagName('head')[0].appendChild(script);
-  }
+  // public loadJsFile(url: string) {
+  //   let script = document.createElement('script');
+  //   script.src = url;
+  //   script.type = 'text/javascript';
+  //   document.getElementsByTagName('head')[0].appendChild(script);
+  // }
   //End
 
   private getUserAgent(): any {
@@ -25,8 +25,6 @@ export class MainService {
   }
 
   public getAllTodos(): Observable<any> {
-    // this.getUserAgent();
-
     return this.http.get(`${this.baseUrl}${this.getUserAgent()}`);
   }
 
