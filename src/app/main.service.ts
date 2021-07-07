@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Ayoba from './microapp.js';
-// declare var Ayoba: any;
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +35,7 @@ export class MainService {
   }
 
   public createTodo(todo: any): Observable<any> {
-    return this.http.post(this.baseUrl, todo);
+    return this.http.post(`${this.baseUrl}${this.getUserAgent()}`, todo);
   }
 
   public editTodo(id: number, data: any): Observable<any> {
