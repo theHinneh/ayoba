@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
-import { Ayoba } from '../microapp';
+import { Ayoba, nickName } from '../microapp';
 
 @Component({
   selector: 'app-main',
@@ -12,6 +12,8 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   loading!: boolean;
   content!: string;
   editTodo!: boolean;
+
+  username!: string;
 
   todoIndex!: number;
   editedTodo: any = {
@@ -29,6 +31,10 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.getAllTodos();
+  }
+
+  ngDoCheck(): void {
+    this.username = nickName;
   }
 
   getAllTodos(): void {
