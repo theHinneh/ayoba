@@ -1,6 +1,7 @@
 import { AfterContentChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import { Ayoba, onNicknameChanged, getCountry } from '../microapp';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-main',
@@ -25,7 +26,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
 
   todayDate: Date = new Date();
 
-  constructor(private mainService: MainService) {}
+  constructor(private mainService: MainService) { }
   ngOnInit(): void {
     // this.getAllTodos();
   }
@@ -43,7 +44,15 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
     this.mainService
       .getAllTodos()
       .subscribe(
-        (res: Array<any>) => (this.todos = res.sort((a, b) => b.id - a.id))
+        (res: Array<any>) => {
+          (this.todos = res.sort((a, b) => b.id - a.id))
+          this.todos.forEach(item => {
+            const duration = this.calculateDuration(item.date)
+            const color = duration >= 16 ? 'success' : duration > 8 && duration < 16 ? 'warning' : 'danger'
+
+            Object.assign(item, color)
+          });
+        }
       );
   }
 
@@ -100,6 +109,15 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
   cancelUpdate(): void {
     this.todos.unshift(this.editedTodo);
     this.editTodo = false;
+  }
+
+  calculateDuration(date: Date) {
+    const start = moment(date); // start date
+    const end = moment(start).add(24, 'hours')
+    const duration = moment.duration(end.diff(start));
+    console.log(duration);
+    
+    return duration.asHours();
   }
 
   ngOnDestroy(): void {

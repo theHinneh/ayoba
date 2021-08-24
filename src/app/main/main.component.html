@@ -79,15 +79,21 @@
                   <div class="pb-1">
                     <div class="pt-1">
                       <ul class="todo-list">
-                        <li class="todo-list-item card card-body shadow-sm bg-white" *ngFor="let todo of todos">
+
+                        <li class="todo-list-item card card-body shadow-sm bg-white" *ngIf="!todos.length">
                           <div class="todo-list-item-name">
-                            {{ todo.content }}
-                            <span *ngIf="!todos.length">Loading...</span>
+                            <span>Loading...</span>
                           </div>
-                          <a *ngIf="todos.length" (click)="updateTodo(todo)" class="edit btn btn-sm btn-icon btn-primary">
+                        </li>
+
+                        <li class="todo-list-item card card-body shadow-sm bg-white" *ngFor="let todo of todos">
+                          <div class="todo-list-item-name" [ngClass]="todo.color">
+                            {{ todo.content }}
+                          </div>
+                          <a (click)="updateTodo(todo)" class="edit btn btn-sm btn-icon btn-primary">
                             <span class="fas fa-edit text-white"></span>
                           </a>
-                          <a *ngIf="todos.length" class="remove btn btn-sm btn-icon btn-danger" (click)="deleteTodo(todo)">
+                          <a class="remove btn btn-sm btn-icon btn-danger" (click)="deleteTodo(todo)">
                             <span class="fas fa-times text-white"></span>
                           </a>
                         </li>
