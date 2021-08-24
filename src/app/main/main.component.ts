@@ -28,12 +28,14 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
 
   constructor(private mainService: MainService) { }
   ngOnInit(): void {
-    // this.getAllTodos();
+    this.getAllTodos();
+    this.country = getCountry()
   }
 
   ngAfterViewInit(): void {
     this.getAllTodos();
     this.country = getCountry()
+    this.username = onNicknameChanged();
   }
 
   ngAfterContentChecked(): void {
