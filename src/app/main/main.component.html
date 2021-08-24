@@ -10,7 +10,7 @@
               </h1>
                 <ul class="breadcrumb fw-bold fs-5 my-1">
                   <li class="breadcrumb-item text-muted">
-                    {{todayDate |date:"longDate"}}
+                    {{todayDate |date:"longDate"}} {{' '+ country}}
                   </li>
                 </ul>
               </div>
@@ -82,11 +82,12 @@
                         <li class="todo-list-item card card-body shadow-sm bg-white" *ngFor="let todo of todos">
                           <div class="todo-list-item-name">
                             {{ todo.content }}
+                            <span *ngIf="!todos.length">Loading...</span>
                           </div>
-                          <a (click)="updateTodo(todo)" class="edit btn btn-sm btn-icon btn-primary">
+                          <a *ngIf="todos.length" (click)="updateTodo(todo)" class="edit btn btn-sm btn-icon btn-primary">
                             <span class="fas fa-edit text-white"></span>
                           </a>
-                          <a class="remove btn btn-sm btn-icon btn-danger" (click)="deleteTodo(todo)">
+                          <a *ngIf="todos.length" class="remove btn btn-sm btn-icon btn-danger" (click)="deleteTodo(todo)">
                             <span class="fas fa-times text-white"></span>
                           </a>
                         </li>

@@ -1,6 +1,6 @@
 import { AfterContentChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
-import { Ayoba, nickName } from '../microapp';
+import { Ayoba, onNicknameChanged, getCountry } from '../microapp';
 
 @Component({
   selector: 'app-main',
@@ -14,6 +14,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
   editTodo!: boolean;
 
   username!: string;
+  country!: string;
 
   todoIndex!: number;
   editedTodo: any = {
@@ -26,15 +27,16 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
 
   constructor(private mainService: MainService) {}
   ngOnInit(): void {
-    this.getAllTodos();
+    // this.getAllTodos();
   }
 
   ngAfterViewInit(): void {
     this.getAllTodos();
+    this.country = getCountry()
   }
 
   ngAfterContentChecked(): void {
-    this.username = nickName;
+    this.username = onNicknameChanged();
   }
 
   getAllTodos(): void {
@@ -43,7 +45,6 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
       .subscribe(
         (res: Array<any>) => (this.todos = res.sort((a, b) => b.id - a.id))
       );
-    console.log(this.todos);
   }
 
   addTodo(): void {

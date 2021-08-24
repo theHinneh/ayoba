@@ -22,18 +22,22 @@ function getAyoba() {
 
 const Ayoba = getAyoba();
 
-let nickName = "";
-
-function onNicknameChanged(nickname) {
+const onNicknameChanged = (nickname) => {
   document.getElementById("nicknameInputText").innerHTML = nickname;
-  nickName = nickname;
-}
+  return nickname;
+};
 
-function onAvatarChanged(avatarPath) {
-  document.getElementById("avatarImage").src = avatarPath
-}
+const onAvatarChanged = (avatarPath) => {
+  document.getElementById("avatarImage").src = avatarPath;
+  return avatarPath;
+};
 
-export { Ayoba, nickName };
+const getCountry = () => {
+  var country = Ayoba.getCountry();
+  return country;
+};
+
+export { Ayoba, onNicknameChanged, onAvatarChanged, getCountry };
 // export default Ayoba
 
 // window.alert("file Loaded");
