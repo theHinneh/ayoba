@@ -62,12 +62,12 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
     this.content = '';
     this.loading = true;
     this.mainService.createTodo(data).subscribe(
-      (res) => {
+      (res: any) => {
         console.log(res);
         this.loading = false;
         this.getAllTodos();
       },
-      (err) => {
+      (err: any) => {
         console.log(err);
         this.loading = false;
       }
@@ -80,8 +80,8 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
     this.todos.splice(todoIndex, 1);
 
     this.mainService.deleteTodo(todoId).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
+      (res: any) => console.log(res),
+      (err: any) => console.log(err)
     );
     console.log(todo);
   }
@@ -98,7 +98,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy, AfterCon
     // this.editTodo = false;
 
     this.mainService.editTodo(this.editedTodo.id, this.editedTodo).subscribe(
-      (res) => {
+      (res: any) => {
         this.editTodo = false;
         console.log(res);
       },

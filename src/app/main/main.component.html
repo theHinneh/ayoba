@@ -1,13 +1,13 @@
 <body class="vh-100 " style="background-color:#e27442;">
   <div class="d-flex flex-column flex-root">
     <div class="page d-flex flex-row flex-column-fluid">
-      <div class="wrapper d-flex flex-column flex-row-fluid" >
+      <div class="wrapper d-flex flex-column flex-row-fluid">
         <div class="content fs-6 d-flex flex-column flex-column-fluid bg-white">
           <div class="toolbar">
             <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
               <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
                 <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-2">Welcome, Today is Another Day
-              </h1>
+                </h1>
                 <ul class="breadcrumb fw-bold fs-5 my-1">
                   <li class="breadcrumb-item text-muted">
                     {{todayDate |date:"longDate"}} {{' '+ country}}
@@ -19,15 +19,16 @@
 
           <form class="card mb-5 shadow-sm m-3" style="border:2px solid #e27442;">
             <div class="card-header">
-                <h3 class="card-title">New Todo</h3>
-                <div class="card-toolbar">
-                    <span class="btn btn-sm btn-light text-white" style="background-color:#e27442;">
-                        New Activity
-                    </span>
-                </div>
+              <h3 class="card-title">New Todo</h3>
+              <div class="card-toolbar">
+                <span class="btn btn-sm btn-light text-white" style="background-color:#e27442;">
+                  New Activity
+                </span>
+              </div>
             </div>
             <div class="card-body">
-              <input type="text" name="content" [(ngModel)]="content" class="form-control form-control-solid" placeholder="Type here"/>
+              <input type="text" name="content" [(ngModel)]="content" class="form-control form-control-solid"
+                placeholder="Type here" />
             </div>
             <div class="card-footer">
               <button type="submit" class="btn btn-success" (click)="addTodo()">
@@ -35,79 +36,84 @@
                 Add to list
               </button>
             </div>
-        </form>
+          </form>
 
-        <!-- Edit -->
-        <form class="card mb-5 shadow-sm m-3" *ngIf="editTodo" style="border:2px solid #e27442;">
-          <div class="card-header">
+          <!-- Edit -->
+          <form class="card mb-5 shadow-sm m-3" *ngIf="editTodo" style="border:2px solid #e27442;">
+            <div class="card-header">
               <h3 class="card-title">Edit Todo</h3>
               <div class="card-toolbar">
-                  <span class="btn btn-sm btn-light text-white" style="background-color:#e27442;">
-                      Edit Activity
-                  </span>
-              </div>
-          </div>
-          <div class="card-body">
-            <input type="text" name="content" [(ngModel)]="editedTodo.content" class="form-control form-control-solid" placeholder="Type here"/>
-          </div>
-          <div class="card-footer">
-            <div class="row">
-              <div class="col-6">
-                <button type="submit" class="btn btn-success m-2 btn-block"  (click)="submitUpdate()">Confirm</button>
-              </div>
-              <div class="col-6">
-                <a class="cancel" class="btn btn-danger m-2 btn-block"  (click)="cancelUpdate()">Cancel</a>
+                <span class="btn btn-sm btn-light text-white" style="background-color:#e27442;">
+                  Edit Activity
+                </span>
               </div>
             </div>
-          </div>
-      </form>
-
-
-
-              <div class="card shadow  m-3">
-                <div class="card-header">
-                  <h3 class="card-title">
-                    Your List
-                  </h3>
-                  <div class="card-toolbar">
-                      <span class="btn btn-sm btn-white text-dark fw-bolder" style="border:1px solid #e27442;">
-                         <span style="font-size: 12pt;">{{todos.length}}</span>
-                      </span>
-                  </div>
-              </div>
-                <div class="card-body">
-                  <div class="pb-1">
-                    <div class="pt-1">
-                      <ul class="todo-list">
-
-                        <li class="todo-list-item card card-body shadow-sm bg-white" *ngIf="!todos.length">
-                          <div class="todo-list-item-name">
-                            <span>Loading...</span>
-                          </div>
-                        </li>
-
-                        <li class="todo-list-item card card-body shadow-sm bg-white" *ngFor="let todo of todos">
-                          <div class="todo-list-item-name" [ngClass]="todo.color">
-                            {{ todo.content }}
-                          </div>
-                          <a (click)="updateTodo(todo)" class="edit btn btn-sm btn-icon btn-primary">
-                            <span class="fas fa-edit text-white"></span>
-                          </a>
-                          <a class="remove btn btn-sm btn-icon btn-danger" (click)="deleteTodo(todo)">
-                            <span class="fas fa-times text-white"></span>
-                          </a>
-                        </li>
-                      </ul>
-                  </div>
-                  </div>
-
+            <div class="card-body">
+              <input type="text" name="content" [(ngModel)]="editedTodo.content" class="form-control form-control-solid"
+                placeholder="Type here" />
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-6">
+                  <button type="submit" class="btn btn-success m-2 btn-block" (click)="submitUpdate()">Confirm</button>
+                </div>
+                <div class="col-6">
+                  <a class="cancel" class="btn btn-danger m-2 btn-block" (click)="cancelUpdate()">Cancel</a>
                 </div>
               </div>
+            </div>
+          </form>
+
+
+
+          <div class="card shadow  m-3">
+            <div class="card-header">
+              <h3 class="card-title">
+                Your List
+              </h3>
+              <div class="card-toolbar">
+                <span class="btn btn-sm btn-white text-dark fw-bolder" style="border:1px solid #e27442;">
+                  <span style="font-size: 12pt;">{{todos.length}}</span>
+                </span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="pb-1">
+                <div class="pt-1">
+                  <ul class="todo-list">
+
+                    <li class="todo-list-item card card-body shadow-sm bg-white" *ngIf="!todos.length">
+                      <div class="todo-list-item-name">
+                        <span>Loading...</span>
+                      </div>
+                    </li>
+                    <span *ngIf="todos.length">
+                      <li class="todo-list-item card card-body shadow-sm bg-white" *ngFor="let todo of todos">
+                        <div class="todo-list-item-name" [ngClass]="todo.color">
+                          {{ todo.content }}
+                        </div>
+                        <a (click)="updateTodo(todo)" class="edit btn btn-sm btn-icon btn-primary">
+                          <span class="fas fa-edit text-white"></span>
+                        </a>
+                        <a class="remove btn btn-sm btn-icon btn-danger" (click)="deleteTodo(todo)">
+                          <span class="fas fa-times text-white"></span>
+                        </a>
+                      </li>
+                    </span>
+
+
+                  </ul>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
-
       </div>
+
     </div>
+    <span id="log"></span>
+  </div>
 
 
-  </body>
+</body>
