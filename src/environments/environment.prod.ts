@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: process.env.BASEURL,
+  baseUrl: `${process.env.BASEURL}/`,
 };
