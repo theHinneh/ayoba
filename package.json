@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start:dev": "ng serve",
+    "start:dev": "ng serve --proxy-config proxy.config.json",
     "start": "node server.js",
-    "build": "ng build",
-    "heroku-postbuild": "ng build",
+    "build": "ng build --proxy-config proxy.config.json",
+    "heroku-postbuild": "ng build --proxy-config proxy.config.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

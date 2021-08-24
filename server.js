@@ -41,6 +41,7 @@ const app = express(),
 app.use(express.static(base_path)); // Serve app assets from ./dist/${app_name}
 
 for (const path in proxy_config) {
+  console.log(proxy_config[path]);
   if (!proxy_config.hasOwnProperty(path)) {
     continue;
   }
@@ -59,5 +60,5 @@ app.get("*", function (req, res) {
  */
 let port = findPort();
 app.listen(port, () => {
-  console.log(`Server is up and running on port ${port} ...`);
+  console.log(`Server is up and running on port ${port} and config url ${proxy_config[path]}`);
 });
